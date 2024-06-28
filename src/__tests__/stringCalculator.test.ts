@@ -19,3 +19,10 @@ test('should return 6 for the input "1\\n2,3"', () => {
 test('should return 3 for the input "//;\\n1;2"', () => {
     expect(add("//;\n1;2")).toBe(3);
 });
+test('should throw an exception for negative numbers', () => {
+    expect(() => add("1,-2,3")).toThrow("Negative numbers not allowed: -2");
+});
+
+test('should list all negative numbers in the exception message', () => {
+    expect(() => add("1,-2,3,-4")).toThrow("Negative numbers not allowed: -2,-4");
+});
